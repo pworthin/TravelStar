@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <link rel="stylesheet" href="stylesheet.css"/>
+        <script type="text/javascript" src="webservices.js"/>
+    </h:head>
+    
+    
+    <h:body>
+        <div class="autoLoadup">
+      <div id="defaultWeather">    
+        
+            
+        </div>
+        <div id="defaultLocation">
+            
+            
+        </div>
+            
+            
+        </div>
+        
+        <div id="mainSector">
+            
+            
+            <h:form class="infoSubmit"  >
+<div class="geoParentClass">
+            <div class="depart">
+                    <h:outputLabel  for="departCity" value="City" />
+      <h:inputText id="departCity" label="City" required="true" value="#{GeoLocation.departCity}"/> ">
+
+   <!--   <h:outputLabel  for="">State (US only)</label>
+      <h:inputText id="" label="" required="" value="}" / id="departState" type="text"> -->
+
+      <h:outputLabel  for="departCountry" value="Country" />
+      <h:inputText id="departCountry" label="Country" required="true" value="#{GeoLocation.departCountry}" />
+
+    <!--  <h:outputLabel name="" for="">Departure date</label> -->
+      </div>  
+
+ <div class="destination">
+ 
+      <h:outputLabel  for="destCity" value="City"/> 
+      <h:inputText id="destinationCity" label="City" required="true" value="#{GeoLocation.destCity}"/>
+
+    <!--  <h:outputLabel  for="destState">State (US only)</label>
+      <h:inputText id="destinationState" label="State (US Only)" required="false" " / id="destinationState" type="text">  -->
+
+      <h:outputLabel for="destCountry" value="County"/>>
+      
+      <h:inputText id="destinationCountry" label="Country" required="true" value="#{GeoLocation.destCountry}"  /> >
+      </div>
+    <h:commandButton id="submit"value="Submit" action=#{Client.sessionBegin()})}t}>
+ 
+ </div>
+    
+      
+    </h:form>
+            
+        </div>
+        
+        <div id="results">
+            
+            
+        </div>
+    </h:body>
+</html>
+

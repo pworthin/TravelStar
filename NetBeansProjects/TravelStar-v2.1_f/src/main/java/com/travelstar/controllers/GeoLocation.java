@@ -39,7 +39,7 @@ public class GeoLocation implements Serializable {
     
     
     public GeoLocation(String departCity, String departState, String departCountry, String destCity, String destState,
-            String destCountry, String cityCode, String countryCode) {
+            String destCountry, String cityCode, String countryCode, Date departDate, Date returnDate) {
         super();
         this.departCity = departCity;
         this.departState = departState;
@@ -49,6 +49,8 @@ public class GeoLocation implements Serializable {
         this.destCountry = destCountry;
         this.cityCode = cityCode;
         this.countryCode = countryCode;
+        this.departDate = departDate;
+        this.returnDate = returnDate;
     }
 
     public String getDepartCity() {

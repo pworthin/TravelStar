@@ -1,13 +1,19 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"    >
+<!--  <?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> !-->
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/index.xhtml">
       
-      
+    <ui:define name="content">
     <h:head>
-        <title>Welecome to TravelStar</title>
+        <title>Welcome to TravelStar</title>
     </h:head>
+    
     <h:body>
         <div class="autoLoadup">
       <div id="defaultWeather">    
@@ -22,49 +28,68 @@
             
         </div>
         
-        <div id="mainSector">
+       
             
-            
+        <ui:define name="content">    
+            <p:messages />
             <h:form class="infoSubmit"  >
-<div class="geoParentClass">
-            <div class="depart">
+           <div class="geoParentClass">
+           
+                <p:tabView>
+                    <p:tab title="Departure Information">
+                        <h:panelGrid columns="2">
                     <h:outputLabel  for="departCity" value="City" />
-      <h:inputText id="departCity" label="City" required="true" value="#{GeoLocation.departCity}"/> 
-
-   <!--   <h:outputLabel  for="">State (US only)</label>
-      <h:inputText id="" label="" required="" value="}" / id="departState" type="text"> -->
+      <h:inputText id="departCity" label="" required="true" value="#{GeoLocation.departCity}"/> 
+    
+   <h:outputLabel  for="departState" value="State (US Only)"/>
+   <h:inputText id="departState" label="" required="" value="#{GeoLocation.departState}"  /> 
 
       <h:outputLabel  for="departCountry" value="Country" />
       <h:inputText id="departCountry" label="Country" required="true" value="#{GeoLocation.departCountry}" />
 
-    <!--  <h:outputLabel name="" for="">Departure date</label> -->
-      </div>  
+      <h:outputLabel  for="departDate" value="Departure Date" /><p:calendar value="#{GeoLocation.departDate} "   /> 
+                        </h:panelGrid>
+                    </p:tab>
 
- <div class="destination">
- 
+ <p:tab title="Destination Information">
+     <h:panelGrid columns="2">
       <h:outputLabel  for="destCity" value="City"/> 
       <h:inputText id="destinationCity" label="City" required="true" value="#{GeoLocation.destCity}"/>
 
-    <!--  <h:outputLabel  for="destState">State (US only)</label>
-      <h:inputText id="destinationState" label="State (US Only)" required="false" " / id="destinationState" type="text">  -->
+    <h:outputLabel  for="desttState" value="State (US Only)"/>
+    <h:inputText id="destState" label="" required="#{GeoLocation.destState}"   /> 
 
       <h:outputLabel for="destCountry" value="County"/>>
       
       <h:inputText id="destinationCountry" label="Country" required="true" value="#{GeoLocation.destCountry}"  /> 
-      </div>
-    <p:commandButton id="submit" value="Submit" actionListener="#{Client.sessionBegin}"  />
- 
- </div>
-    
       
-    </h:form>
+      
+      <h:outputLabel for="returnDate" value="Date of Return"/><p:calendar value="#{GeoLocation.returnDate}"/>
+      
+    <p:commandButton id="submit" value="Submit" actionListener="#{Client.sessionBegin}"  />
+    </h:panelGrid>
+ </p:tab>
+ 
+    
+                </p:tabView>
+    
             
         </div>
-        
+        </h:form>
         <div id="results">
             
             
         </div>
-    </h:body>
-</html>
+   
+</ui:define>
+   </h:body>
+    </ui:define>
+</ui:composition>
+         
+        
+   
+    
+    
 
+
+ 
